@@ -23,13 +23,16 @@ const config: Config = {
 				crbrsOrange: "#F85006",
 			},
 			animation: {
-				fade: "fadeIn 2.5s ease-in-out",
+				shimmer: "shimmer 2s linear infinite",
 			},
-
 			keyframes: {
-				fadeIn: {
-					from: { opacity: "0" },
-					to: { opacity: "1" },
+				shimmer: {
+					from: {
+						backgroundPosition: "0 0",
+					},
+					to: {
+						backgroundPosition: "-200% 0",
+					},
 				},
 			},
 		},

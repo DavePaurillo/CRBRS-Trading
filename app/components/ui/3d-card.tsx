@@ -43,7 +43,8 @@ export const CardContainer = ({
 	const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
 		if (!containerRef.current) return;
 		setIsMouseEntered(false);
-		containerRef.current.style.transform = `rotateY(0deg) rotateX(0deg)`;
+		// changes the angle of the container
+		containerRef.current.style.transform = `rotateY(-12deg) rotateX(4.5deg)`;
 	};
 	return (
 		<MouseEnterContext.Provider value={[isMouseEntered, setIsMouseEntered]}>
@@ -67,6 +68,7 @@ export const CardContainer = ({
 					)}
 					style={{
 						transformStyle: "preserve-3d",
+						transform: "rotateY(-12deg) rotateX(4.5deg)",
 					}}
 				>
 					{children}
@@ -130,7 +132,7 @@ export const CardItem = ({
 		if (isMouseEntered) {
 			ref.current.style.transform = `translateX(${translateX}px) translateY(${translateY}px) translateZ(${translateZ}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg)`;
 		} else {
-			ref.current.style.transform = `translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)`;
+			ref.current.style.transform = `translateX(0px) translateY(0px) translateZ(100px) rotateX(0deg) rotateY(0deg) rotateZ(0deg)`;
 		}
 	};
 

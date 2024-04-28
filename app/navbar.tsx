@@ -6,6 +6,9 @@ import {
 	MenuItem,
 	ProductItem,
 } from "./components/ui/navbar-menu";
+import { HoverBorderGradient } from "./components/ui/hover-border-gradient";
+import Image from "next/image";
+
 import { cn } from "./utils/cn";
 
 export function Nav() {
@@ -19,71 +22,50 @@ export function Nav() {
 function Navbar({ className }: { className?: string }) {
 	const [active, setActive] = useState<string | null>(null);
 	return (
-		<div
-			className={cn(
-				"fixed top-10 inset-x-0 max-w-2xl mx-auto z-50",
-				className
-			)}
-		>
-			<Menu setActive={setActive}>
-				<HoveredLink href='#'>Home</HoveredLink>
-				<HoveredLink href='#'>About</HoveredLink>
-				<HoveredLink href='#'>Proof of Concept</HoveredLink>
-				<HoveredLink href='#'>Courses</HoveredLink>
-				<HoveredLink href='#'>Contact Us</HoveredLink>
-				{/* TODO change this to button */}
-				<HoveredLink href='#'>Login</HoveredLink>
-				{/* <MenuItem setActive={setActive} active={active} item='Services'>
-					<div className='flex flex-col space-y-4 text-sm'>
-						<HoveredLink href='/web-dev'>
-							Web Development
-						</HoveredLink>
-						<HoveredLink href='/interface-design'>
-							Interface Design
-						</HoveredLink>
-						<HoveredLink href='/seo'>
-							Search Engine Optimization
-						</HoveredLink>
-						<HoveredLink href='/branding'>Branding</HoveredLink>
-					</div>
-				</MenuItem>
-				<MenuItem setActive={setActive} active={active} item='Products'>
-					<div className='  text-sm grid grid-cols-2 gap-10 p-4'>
-						<ProductItem
-							title='Algochurn'
-							href='https://algochurn.com'
-							src='https://assets.aceternity.com/demos/algochurn.webp'
-							description='Prepare for tech interviews like never before.'
-						/>
-						<ProductItem
-							title='Tailwind Master Kit'
-							href='https://tailwindmasterkit.com'
-							src='https://assets.aceternity.com/demos/tailwindmasterkit.webp'
-							description='Production ready Tailwind css components for your next project'
-						/>
-						<ProductItem
-							title='Moonbeam'
-							href='https://gomoonbeam.com'
-							src='https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.51.31%E2%80%AFPM.png'
-							description='Never write from scratch again. Go from idea to blog in minutes.'
-						/>
-						<ProductItem
-							title='Rogue'
-							href='https://userogue.com'
-							src='https://assets.aceternity.com/demos/Screenshot+2024-02-21+at+11.47.07%E2%80%AFPM.png'
-							description='Respond to government RFPs, RFIs and RFQs 10x faster using AI'
-						/>
-					</div>
-				</MenuItem>
-				<MenuItem setActive={setActive} active={active} item='Pricing'>
-					<div className='flex flex-col space-y-4 text-sm'>
-						<HoveredLink href='/hobby'>Hobby</HoveredLink>
-						<HoveredLink href='/individual'>Individual</HoveredLink>
-						<HoveredLink href='/team'>Team</HoveredLink>
-						<HoveredLink href='/enterprise'>Enterprise</HoveredLink>
-					</div>
-				</MenuItem> */}
-			</Menu>
+		<div>
+			{/* TODO Update the image - blurred siya */}
+			<div className='absolute top-10 left-20 z-50 bg-black flex space-x-3 items-center rounded-full px-5 w-[6rem] h-[4.5rem]'>
+				<Image
+					src='/crbrs-icon.png'
+					height='120'
+					width='120'
+					className='w-full object-cover rounded-xl group-hover/card:shadow-xl'
+					alt='thumbnail'
+				/>
+				<div className='flex flex-col items-center bg-black'>
+					<p className='font-bold text-md leading-3'>Cerberus</p>
+					<span className='text-sm'>Trading</span>
+				</div>
+			</div>
+			<div
+				className={cn(
+					"absolute top-10 inset-x-0 max-w-2xl mx-auto z-50",
+					className
+				)}
+			>
+				<Menu setActive={setActive}>
+					<HoveredLink href='#'>Home</HoveredLink>
+					<HoveredLink href='#'>About</HoveredLink>
+					<HoveredLink href='#'>Proof of Concept</HoveredLink>
+					<HoveredLink href='#'>Courses</HoveredLink>
+					<HoveredLink href='#'>Contact Us</HoveredLink>
+					{/* TODO change this to button */}
+					{/* <HoveredLink href='#'>Login</HoveredLink> */}
+				</Menu>
+			</div>
+			<div className='absolute top-10 right-20 z-50 flex space-x-6'>
+				<button className='transition duration-150 border-b-2 border-transparent hover:border-crbrsOrange'>
+					Sign up
+				</button>
+				<HoverBorderGradient
+					containerClassName='rounded-full'
+					as='button'
+					className='dark:bg-black bg-white text-black dark:text-white mx-4'
+				>
+					{/* <AceternityLogo /> */}
+					<span>Login</span>
+				</HoverBorderGradient>
+			</div>
 		</div>
 	);
 }
