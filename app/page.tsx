@@ -1,5 +1,5 @@
-import { Nav } from "./nav";
-import { Hero } from "./hero";
+import { Nav } from "./Nav";
+import { Hero } from "./Hero";
 import { HeroBackground } from "./components/ui/hero-highlight";
 
 export default function Home() {
