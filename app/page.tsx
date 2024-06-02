@@ -1,12 +1,16 @@
-import { Nav } from "./navbar";
+import { Nav } from "./Navbar";
 import { Hero } from "./hero";
+import { HeroBackground } from "./components/ui/hero-highlight";
 
 export default function Home() {
 	return (
 		<main>
-			<Nav />
-			<Hero />
-			<div className='h-[40rem]'></div>
+			{/* Nav and Hero section */}
+			<HeroBackground>
+				<Nav />
+				<Hero />
+				<div className='h-48'></div>
+			</HeroBackground>
 		</main>
 	);
 }

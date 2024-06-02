@@ -3,7 +3,7 @@ import { cn } from "../../utils/cn";
 import { useMotionValue, motion, useMotionTemplate } from "framer-motion";
 import React from "react";
 
-export const HeroHighlight = ({
+export const HeroBackground = ({
 	children,
 	className,
 	containerClassName,
@@ -29,7 +29,7 @@ export const HeroHighlight = ({
 	return (
 		<div
 			className={cn(
-				"relative h-screen flex items-center justify-center bg-white dark:bg-black  w-full group",
+				"relative bg-white dark:bg-black w-full group",
 				containerClassName
 			)}
 			onMouseMove={handleMouseMove}
@@ -55,14 +55,7 @@ export const HeroHighlight = ({
 				}}
 			/>
 
-			<div
-				className={cn(
-					"relative z-20 flex items-center space-x-12",
-					className
-				)}
-			>
-				{children}
-			</div>
+			<div className={cn("relative z-20", className)}>{children}</div>
 		</div>
 	);
 };
@@ -93,7 +86,7 @@ export const Highlight = ({
 				display: "inline",
 			}}
 			className={cn(
-				`relative inline-block pb-1   px-1 rounded-lg bg-gradient-to-r from-gray-900 to-slate-900 dark:from-gray-900 dark:to-slate-900`,
+				`relative inline-block pb-1 px-1 rounded-lg bg-gradient-to-r from-gray-900 to-slate-900 dark:from-crbrsDark dark:to-crbrsDark`,
 				className
 			)}
 		>

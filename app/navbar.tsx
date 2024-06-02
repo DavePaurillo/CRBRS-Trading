@@ -1,71 +1,199 @@
 "use client";
 import React, { useState } from "react";
-import {
-	HoveredLink,
-	Menu,
-	MenuItem,
-	ProductItem,
-} from "./components/ui/navbar-menu";
+import { HoveredLink } from "./components/ui/navbar-menu";
 import { HoverBorderGradient } from "./components/ui/hover-border-gradient";
 import Image from "next/image";
-
-import { cn } from "./utils/cn";
+import hamburger from "../public/hamburger.svg";
+import close from "../public/close.svg";
+import { motion, AnimatePresence } from "framer-motion";
 
 export function Nav() {
-	return (
-		<div className='relative w-full flex items-center justify-center'>
-			<Navbar className='top-10' />
-		</div>
-	);
-}
+	// Mobile mode - Start
+	const [isToggled, setToggle] = useState(false);
 
-function Navbar({ className }: { className?: string }) {
-	const [active, setActive] = useState<string | null>(null);
+	const navContainer = {
+		hidden: {
+			y: "-100vh",
+		},
+		visible: {
+			y: 0,
+			transition: {
+				type: "tween",
+				duration: 0.3,
+			},
+		},
+		exit: {
+			y: "-100vh",
+			transition: {
+				type: "tween",
+				duration: 0.3,
+				delay: 0.3,
+			},
+		},
+	};
+	interface NavBarProps {
+		isToggled: boolean;
+	}
+
+	const Navbar: React.FC<NavBarProps> = (props: NavBarProps) => {
+		const items = [
+			"Home",
+			"About",
+			"Proof of Concept",
+			"Courses",
+			"Contact us",
+		];
+
+		const navList = {
+			visible: {
+				opacity: 1,
+				transition: {
+					delayChildren: 0.2,
+					staggerChildren: 0.07,
+				},
+			},
+			hidden: {
+				opacity: 0,
+				transition: {
+					staggerChildren: 0.05,
+					staggerDirection: -1,
+				},
+			},
+		};
+
+		const navItem = {
+			visible: {
+				y: 0,
+				opacity: 1,
+				transition: {
+					y: { stiffness: 1000, velocity: -100 },
+				},
+			},
+			hidden: {
+				y: 50,
+				opacity: 0,
+				transition: {
+					y: { stiffness: 1000, velocity: -100 },
+				},
+			},
+		};
+
+		return (
+			<>
+				<motion.ul
+					className='flex flex-col items-center gap-5 justify-center h-screen z-50'
+					initial='hidden'
+					animate='visible'
+					exit='hidden'
+					variants={navList}
+				>
+					<li className='mb-8'>
+						<HoverBorderGradient
+							containerClassName='rounded-full'
+							as='button'
+							className='dark:bg-black bg-white text-black dark:text-white mx-4'
+						>
+							<span>Login</span>
+						</HoverBorderGradient>
+					</li>
+					{items.map((item) => (
+						<motion.li
+							className='nav-item'
+							variants={navItem}
+							key={item}
+						>
+							<HoveredLink href='#'>{item}</HoveredLink>
+						</motion.li>
+					))}
+					<li
+						className='mt-10 xl:hidden'
+						onClick={() => setToggle(!isToggled)}
+					>
+						<div>
+							<Image
+								src={close}
+								alt='close'
+								height={50}
+								width={50}
+							/>
+						</div>
+					</li>
+				</motion.ul>
+			</>
+		);
+	};
+	// Mobile mode - End
+
 	return (
-		<div>
-			{/* TODO Update the image - blurred siya */}
-			<div className='absolute top-10 left-20 z-50 bg-black flex space-x-3 items-center rounded-full px-5 w-[6rem] h-[4.5rem]'>
+		<div className='relative max-w-screen-sm flex items-center justify-between px-6 pt-5 pb-8 mx-auto md:max-w-screen-md xl:max-w-screen-xl xl:px-0 xl:py-8'>
+			<div className='bg-black flex items-center rounded-full'>
 				<Image
 					src='/crbrs-icon.png'
-					height='120'
-					width='120'
+					height='50'
+					width='50'
 					className='w-full object-cover rounded-xl group-hover/card:shadow-xl'
 					alt='thumbnail'
 				/>
 				<div className='flex flex-col items-center bg-black'>
-					<p className='font-bold text-md leading-3'>Cerberus</p>
-					<span className='text-sm'>Trading</span>
+					<p className='font-bold text-sm leading-3'>Cerberus</p>
+					<span className='text-xs'>Trading</span>
 				</div>
 			</div>
-			<div
-				className={cn(
-					"absolute top-10 inset-x-0 max-w-2xl mx-auto z-50",
-					className
-				)}
-			>
-				<Menu setActive={setActive}>
+
+			{/* Nav on Desktop - Start */}
+			<div className='hidden xl:block'>
+				<HoverBorderGradient
+					containerClassName='rounded-full'
+					className='dark:bg-black bg-white text-black dark:text-white flex items-center space-x-6 py-4 px-8'
+				>
 					<HoveredLink href='#'>Home</HoveredLink>
 					<HoveredLink href='#'>About</HoveredLink>
 					<HoveredLink href='#'>Proof of Concept</HoveredLink>
 					<HoveredLink href='#'>Courses</HoveredLink>
 					<HoveredLink href='#'>Contact Us</HoveredLink>
-					{/* TODO change this to button */}
-					{/* <HoveredLink href='#'>Login</HoveredLink> */}
-				</Menu>
-			</div>
-			<div className='absolute top-10 right-20 z-50 flex space-x-6'>
-				<button className='transition duration-150 border-b-2 border-transparent hover:border-crbrsOrange'>
-					Sign up
-				</button>
-				<HoverBorderGradient
-					containerClassName='rounded-full'
-					as='button'
-					className='dark:bg-black bg-white text-black dark:text-white mx-4'
-				>
-					{/* <AceternityLogo /> */}
-					<span>Login</span>
 				</HoverBorderGradient>
 			</div>
+
+			<div className='hidden xl:block'>
+				<HoverBorderGradient
+					containerClassName='rounded-full'
+					className='dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2'
+				>
+					Login
+				</HoverBorderGradient>
+			</div>
+			{/* Nav on Desktop - End */}
+
+			{/* Nav on Mobile - Start */}
+			<div className='flex justify-center text-center p-4 rounded-full opacity-70 xl:hidden 2xl:hidden'>
+				<HoverBorderGradient
+					onClick={() => setToggle(!isToggled)}
+					containerClassName='rounded-full'
+					as='button'
+					className='dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2'
+				>
+					<Image
+						src={hamburger}
+						alt='hamburger'
+						width={20}
+						height={20}
+					/>
+				</HoverBorderGradient>
+			</div>
+			<AnimatePresence>
+				{isToggled && (
+					<motion.div
+						className='fixed inset-0 h-screen w-full bg-gray-900 z-50'
+						initial='hidden'
+						animate={isToggled ? "visible" : "hidden"}
+						exit='exit'
+						variants={navContainer}
+					>
+						<Navbar isToggled={isToggled} />
+					</motion.div>
+				)}
+			</AnimatePresence>
+			{/* Nav on Mobile - End */}
 		</div>
 	);
 }

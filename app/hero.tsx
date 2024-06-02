@@ -1,11 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
-import { HeroHighlight, Highlight } from "./components/ui/hero-highlight";
+import { HeroBackground, Highlight } from "./components/ui/hero-highlight";
 import { HeroImg } from "./heroImg";
 
 export function Hero() {
 	return (
-		<HeroHighlight>
+		<div className='flex flex-col items-center justify-betwewen mx-auto max-w-screen-sm md:max-w-screen-md xl:mt-12 xl:flex-row xl:max-w-screen-xl xl:gap-12'>
 			<div className='hero-text flex flex-col items-center'>
 				<motion.h1
 					initial={{
@@ -20,7 +20,7 @@ export function Hero() {
 						duration: 2,
 						ease: [0.4, 0.0, 0.2, 1],
 					}}
-					className='text-2xl px-4 md:text-4xl lg:text-8xl font-bold text-neutral-700 dark:text-white max-w-4xl leading-relaxed lg:leading-20 mx-auto pb-8 '
+					className='mx-auto pb-3 px-4 text-center text-3xl font-bold text-neutral-700 dark:text-white max-w-4xl md:text-5xl md:pb-6 xl:text-7xl xl:text-left'
 				>
 					Igniting Filipino dreams.
 				</motion.h1>
@@ -40,7 +40,7 @@ export function Hero() {
 						ease: [0.4, 0.0, 0.2, 1],
 						delay: 0.5,
 					}}
-					className='text-2xl px-4 md:text-4xl lg:text-8xl font-bold text-neutral-700 dark:text-white max-w-4xl leading-relaxed lg:leading-20 text-right mx-auto pb-8 '
+					className='mx-auto pb-4 px-4 text-center text-3xl font-bold text-neutral-700 dark:text-white max-w-4xl md:text-5xl md:pb-6 xl:text-7xl xl:text-right xl:pb-20'
 				>
 					Transforming ambition to action.
 				</motion.h1>
@@ -60,20 +60,35 @@ export function Hero() {
 						ease: [0.4, 0.0, 0.2, 1],
 						delay: 1,
 					}}
-					className='text-2xl px-4 md:text-4xl lg:text-7xl font-bold text-neutral-700 dark:text-white max-w-4xl leading-relaxed lg:leading-20 mx-auto pb-20'
+					className='mx-auto pb-8 px-4 text-center text-3xl font-bold text-neutral-700 dark:text-white max-w-4xl md:text-5xl md:pb-12 xl:text-6xl'
 				>
 					<Highlight className='text-black dark:text-white'>
 						One Trade at a time.
 					</Highlight>
 				</motion.h1>
 
-				<button className='py-3 rounded-full inline-flex animate-shimmer items-center justify-center border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50'>
+				<motion.button
+					initial={{
+						opacity: 0,
+						y: 20,
+					}}
+					animate={{
+						opacity: 1,
+						y: [20, -5, 0],
+					}}
+					transition={{
+						duration: 2,
+						ease: [0.4, 0.0, 0.2, 1],
+						delay: 1.5,
+					}}
+					className='py-2 px-5 text-sm rounded-full inline-flex animate-shimmer items-center justify-center border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 md:px-8 md:py-3 md:text-base md:my-4'
+				>
 					Enroll Now!!
-				</button>
+				</motion.button>
 			</div>
 			<div className='hero-img'>
 				<HeroImg />
 			</div>
-		</HeroHighlight>
+		</div>
 	);
 }

@@ -69,14 +69,13 @@ export const Menu = ({
 	children: React.ReactNode;
 }) => {
 	return (
-		<HoverBorderGradient
-			containerClassName='rounded-full'
-			className='dark:bg-black bg-white text-black dark:text-white flex items-center space-x-8 px-8 pt-5 pb-4'
-			// onMouseLeave={() => setActive(null)} // resets the state
-			// className='relative rounded-full bg-gray-900 shadow-xl flex justify-center space-x-8 px-8 py-6 '
-		>
-			{children}
-		</HoverBorderGradient>
+		// <HoverBorderGradient
+		// 	containerClassName='rounded-full'
+		// 	className='dark:bg-black bg-white text-black dark:text-white flex items-center space-x-8 px-8 pt-5 pb-4'
+		// >
+		// 	{children}
+		// </HoverBorderGradient>
+		<div className=''>{children}</div>
 	);
 };
 
