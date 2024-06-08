@@ -24,6 +24,7 @@ const config: Config = {
 			},
 			animation: {
 				shimmer: "shimmer 2s linear infinite",
+				scroll: "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
 			},
 			keyframes: {
 				shimmer: {
@@ -32,6 +33,11 @@ const config: Config = {
 					},
 					to: {
 						backgroundPosition: "-200% 0",
+					},
+				},
+				scroll: {
+					to: {
+						transform: "translate(calc(-50% - 0.5rem))",
 					},
 				},
 			},

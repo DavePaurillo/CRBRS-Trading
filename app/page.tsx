@@ -3,11 +3,11 @@ import { Hero } from "./Hero";
 import { About } from "./About";
 import { POC } from "./POC";
 import { HeroBackground } from "./components/ui/hero-highlight";
+import { Testimonials } from "./Testimonials";
 
 export default function Home() {
 	return (
 		<main>
-			{/* Nav and Hero section */}
 			<HeroBackground>
 				<Nav />
 				<Hero />
@@ -15,7 +15,9 @@ export default function Home() {
 				<About />
 				<div className='h-64'></div>
 				<POC />
-				<div className='h-64'></div>
+				<div className='h-48'></div>
+				<Testimonials />
+				<div className='h-48'></div>
 			</HeroBackground>
 		</main>
 	);
