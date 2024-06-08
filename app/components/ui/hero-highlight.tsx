@@ -29,7 +29,7 @@ export const HeroBackground = ({
 	return (
 		<div
 			className={cn(
-				"relative bg-white dark:bg-black w-full group",
+				"relative h-full bg-white dark:bg-black w-full group",
 				containerClassName
 			)}
 			onMouseMove={handleMouseMove}
