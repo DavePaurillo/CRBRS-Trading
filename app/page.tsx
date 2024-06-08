@@ -1,6 +1,7 @@
 import { Nav } from "./Nav";
 import { Hero } from "./Hero";
 import { About } from "./About";
+import { POC } from "./POC";
 import { HeroBackground } from "./components/ui/hero-highlight";
 
 export default function Home() {
@@ -12,7 +13,9 @@ export default function Home() {
 				<Hero />
 				<div className='h-48'></div>
 				<About />
-				<div className='h-48'></div>
+				<div className='h-64'></div>
+				<POC />
+				<div className='h-64'></div>
 			</HeroBackground>
 		</main>
 	);
