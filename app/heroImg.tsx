@@ -13,9 +13,9 @@ export function HeroImg() {
 						<Image
 							src={"/crbrs-hero.png"}
 							alt='crbrs 3d dog'
-							layout='fill'
-							objectFit='contain'
+							fill
 							className='w-full object-cover rounded-xl group-hover/card:shadow-xl'
+							sizes='90vw'
 						/>
 					</div>
 				</CardItem>

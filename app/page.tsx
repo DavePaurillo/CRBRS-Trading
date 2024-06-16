@@ -4,6 +4,7 @@ import { About } from "./About";
 import { POC } from "./POC";
 import { HeroBackground } from "./components/ui/hero-highlight";
 import { Testimonials } from "./Testimonials";
+import { Courses } from "./Courses";
 
 export default function Home() {
 	return (
@@ -18,6 +19,7 @@ export default function Home() {
 				<div className='h-48'></div>
 				<Testimonials />
 				<div className='h-48'></div>
+				<Courses />
 			</HeroBackground>
 		</main>
 	);
