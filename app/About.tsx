@@ -23,7 +23,10 @@ export function About() {
 				&nbsp; About Us
 			</h1>
 
-			<ImagesSlider className='h-[50rem] rounded-2xl' images={images}>
+			<ImagesSlider
+				className='h-[20rem] rounded-2xl md:h-[35rem] xl:h-[50rem]'
+				images={images}
+			>
 				<motion.div
 					initial={{
 						opacity: 0,
