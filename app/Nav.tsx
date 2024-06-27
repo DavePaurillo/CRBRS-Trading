@@ -125,7 +125,7 @@ export function Nav() {
 	// Mobile mode - End
 
 	return (
-		<div className='relative max-w-screen-sm flex items-center justify-between px-6 pt-5 pb-8 mx-auto md:max-w-screen-md xl:max-w-screen-xl xl:px-0 xl:py-8'>
+		<div className='relative max-w-7xl flex items-center justify-between px-4 pt-6 pb-8 mx-auto xl:px-0 xl:py-8'>
 			<div className='bg-black flex items-center rounded-full'>
 				<Image
 					src='/crbrs-icon.png'

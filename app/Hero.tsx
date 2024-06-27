@@ -5,7 +5,7 @@ import { HeroImg } from "./heroImg";
 
 export function Hero() {
 	return (
-		<div className='flex flex-col items-center justify-betwewen mx-auto max-w-screen-sm md:max-w-screen-md xl:mt-12 xl:flex-row xl:max-w-screen-xl xl:gap-12'>
+		<div className='flex flex-col items-center justify-betwewen mx-auto max-w-7xl xl:mt-12 xl:flex-row xl:gap-12'>
 			<div className='hero-text flex flex-col items-center'>
 				<motion.h1
 					initial={{
