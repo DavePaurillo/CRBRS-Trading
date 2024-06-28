@@ -146,11 +146,11 @@ export function Nav() {
 					containerClassName='rounded-full'
 					className='dark:bg-black bg-white text-black dark:text-white flex items-center space-x-6 py-4 px-8'
 				>
-					<HoveredLink href='#'>Home</HoveredLink>
-					<HoveredLink href='#'>About</HoveredLink>
-					<HoveredLink href='#'>Proof of Concept</HoveredLink>
-					<HoveredLink href='#'>Courses</HoveredLink>
-					<HoveredLink href='#'>Contact Us</HoveredLink>
+					<HoveredLink href='#home'>Home</HoveredLink>
+					<HoveredLink href='#about'>About</HoveredLink>
+					<HoveredLink href='#poc'>Proof of Concept</HoveredLink>
+					<HoveredLink href='#courses'>Courses</HoveredLink>
+					<HoveredLink href='#contactUs'>Contact Us</HoveredLink>
 				</HoverBorderGradient>
 			</div>
 

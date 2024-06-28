@@ -17,6 +17,7 @@ export const AnimatedTooltip = ({
 		name: string;
 		designation: string;
 		image: string;
+		link: string;
 	}[];
 }) => {
 	const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -37,14 +38,19 @@ export const AnimatedTooltip = ({
 		x.set(event.nativeEvent.offsetX - halfWidth); // set the x value, which is then used in transform and rotate
 	};
 
+	const handleMouseClick = (link: string) => {
+		window.open(link, "_blank")?.focus();
+	};
+
 	return (
 		<>
 			{items.map((item, idx) => (
 				<div
-					className='-mr-4  relative group'
+					className='ml-4 relative group'
 					key={item.name}
 					onMouseEnter={() => setHoveredIndex(item.id)}
 					onMouseLeave={() => setHoveredIndex(null)}
+					onClick={() => handleMouseClick(item.link)}
 				>
 					<AnimatePresence mode='popLayout'>
 						{hoveredIndex === item.id && (
