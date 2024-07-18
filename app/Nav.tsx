@@ -1,13 +1,30 @@
 "use client";
 import React, { useState } from "react";
-import { HoveredLink } from "./components/ui/navbar-menu";
-import { HoverBorderGradient } from "./components/ui/hover-border-gradient";
 import Image from "next/image";
 import hamburger from "../public/hamburger.svg";
 import close from "../public/close.svg";
+
+import { HoveredLink } from "./components/ui/navbar-menu";
+import { HoverBorderGradient } from "./components/ui/hover-border-gradient";
 import { motion, AnimatePresence } from "framer-motion";
 
+import { auth } from "./firebase/firebaseConfig";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
+
 export function Nav() {
+	// current active user
+	const [currentUser, setCurrentUser] = useAuthState(auth);
+
+	// Auth provider
+	const googleAuth = new GoogleAuthProvider();
+
+	// login function
+	// once logged in, data is stored in useAuthState only until the user logs out
+	const login = async () => {
+		await signInWithPopup(auth, googleAuth);
+	};
+
 	// Mobile mode - Start
 	const [isToggled, setToggle] = useState(false);
 
@@ -87,14 +104,26 @@ export function Nav() {
 					exit='hidden'
 					variants={navList}
 				>
-					<li className='mb-8'>
-						<HoverBorderGradient
-							containerClassName='rounded-full'
-							as='button'
-							className='dark:bg-black bg-white text-black dark:text-white mx-4'
-						>
-							<span>Login</span>
-						</HoverBorderGradient>
+					<li className='mb-8 xl:hidden'>
+						{currentUser ? (
+							<HoverBorderGradient
+								containerClassName='rounded-full'
+								as='button'
+								onClick={() => auth.signOut()}
+								className='dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2'
+							>
+								Logout
+							</HoverBorderGradient>
+						) : (
+							<HoverBorderGradient
+								containerClassName='rounded-full'
+								as='button'
+								onClick={login}
+								className='dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2'
+							>
+								Login
+							</HoverBorderGradient>
+						)}
 					</li>
 					{items.map((item) => (
 						<motion.li
@@ -155,12 +184,25 @@ export function Nav() {
 			</div>
 
 			<div className='hidden xl:block'>
-				<HoverBorderGradient
-					containerClassName='rounded-full'
-					className='dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2'
-				>
-					Login
-				</HoverBorderGradient>
+				{currentUser ? (
+					<HoverBorderGradient
+						containerClassName='rounded-full'
+						as='button'
+						onClick={() => auth.signOut()}
+						className='dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2'
+					>
+						Logout
+					</HoverBorderGradient>
+				) : (
+					<HoverBorderGradient
+						containerClassName='rounded-full'
+						as='button'
+						onClick={login}
+						className='dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2'
+					>
+						Login
+					</HoverBorderGradient>
+				)}
 			</div>
 			{/* Nav on Desktop - End */}
 

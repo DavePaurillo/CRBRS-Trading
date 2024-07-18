@@ -22,9 +22,9 @@ export default function Home() {
 				<Testimonials />
 				<div className='h-48'></div>
 				<Courses />
+				{/* <div className='h-48'></div>
+				<GetInTouch /> */}
 				<div className='h-48'></div>
-				<GetInTouch />
-				<div className='h-20'></div>
 				<Footer />
 			</HeroBackground>
 		</main>
