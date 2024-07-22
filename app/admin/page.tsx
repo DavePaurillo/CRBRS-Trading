@@ -18,28 +18,35 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import Header from "./Header";
 import Table from "./Table";
 import AddTrader from "./AddTrader";
+import EditTrader from "./EditTrader";
 
 function Admin() {
 	const [currentUser, setCurrentUser] = useAuthState(auth);
-	const [users, setUsers] = useState<any>([]);
+	const [selectedTrader, setSelectedTrader] = useState(null);
+	const [traders, setTraders] = useState<any>([]);
 	const [isAdding, setIsAdding] = useState(false);
 	const [isEditing, setIsEditing] = useState(false);
 
-	const getUsers = async () => {
+	const getTraders = async () => {
 		const querySnapshot = await getDocs(collection(db, "users"));
-		const traders = querySnapshot.docs.map((doc) => ({
+		const tradersList = querySnapshot.docs.map((doc) => ({
 			id: doc.id,
 			...doc.data(),
 		}));
-		setUsers(traders);
+		setTraders(tradersList);
 	};
 
 	useEffect(() => {
-		getUsers();
+		getTraders();
 	}, []);
 
-	const handleEdit = () => {
-		console.log("handleEdit");
+	const handleEdit = (id: string) => {
+		const [trader] = traders.filter(
+			(trader: { id: string }) => trader.id === id
+		);
+
+		setSelectedTrader(trader);
+		setIsEditing(true);
 	};
 
 	const validUsers = [
@@ -53,13 +60,22 @@ function Admin() {
 			{validUsers.includes(currentUser?.email!) ? (
 				<>
 					<Header setIsAdding={setIsAdding} />
-					<Table traders={users} handleEdit={handleEdit} />
+					<Table traders={traders} handleEdit={handleEdit} />
 					{isAdding && (
 						<AddTrader
-							traders={users}
-							setTraders={setUsers}
+							traders={traders}
+							setTraders={setTraders}
 							setIsAdding={setIsAdding}
-							getUsers={getUsers}
+							getTraders={getTraders}
+						/>
+					)}
+					{isEditing && (
+						<EditTrader
+							traders={traders}
+							selectedTrader={selectedTrader}
+							setTraders={setTraders}
+							setIsEditing={setIsEditing}
+							getTraders={getTraders}
 						/>
 					)}
 				</>

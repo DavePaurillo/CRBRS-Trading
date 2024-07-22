@@ -12,6 +12,8 @@ import { auth } from "./firebase/firebaseConfig";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 
+import Swal from "sweetalert2";
+
 export function Nav() {
 	// current active user
 	const [currentUser, setCurrentUser] = useAuthState(auth);
@@ -23,6 +25,28 @@ export function Nav() {
 	// once logged in, data is stored in useAuthState only until the user logs out
 	const login = async () => {
 		await signInWithPopup(auth, googleAuth);
+
+		Swal.fire({
+			position: "top-end",
+			icon: "success",
+			title: "You have successfully logged in",
+			showConfirmButton: false,
+			toast: true,
+			timer: 1000,
+		});
+	};
+
+	const logout = () => {
+		auth.signOut();
+
+		Swal.fire({
+			position: "top-end",
+			icon: "success",
+			title: "You have successfully logged out",
+			showConfirmButton: false,
+			toast: true,
+			timer: 1000,
+		});
 	};
 
 	// Mobile mode - Start
@@ -109,7 +133,7 @@ export function Nav() {
 							<HoverBorderGradient
 								containerClassName='rounded-full'
 								as='button'
-								onClick={() => auth.signOut()}
+								onClick={logout}
 								className='dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2'
 							>
 								Logout
@@ -188,7 +212,7 @@ export function Nav() {
 					<HoverBorderGradient
 						containerClassName='rounded-full'
 						as='button'
-						onClick={() => auth.signOut()}
+						onClick={logout}
 						className='dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2'
 					>
 						Logout

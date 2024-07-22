@@ -1,52 +1,67 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
 import { db } from "../firebase/firebaseConfig";
-import { collection, addDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 
-const AddTrader = ({ traders, setTraders, setIsAdding, getTraders }: any) => {
-	const [emailAddress, setemailAddress] = useState("");
-	const [isBootcampAttendee, setIsBootcampAttendee] = useState(false);
-	const [isNFAttendee, setIsNFAttendee] = useState(false);
-	const [isCBMAttendee, setIsCBMAttendee] = useState(false);
+const EditTrader = ({
+	traders,
+	selectedTrader,
+	setTraders,
+	setIsEditing,
+	getTraders,
+}: any) => {
+	const id = selectedTrader.id;
 
-	const handleAdd = async (e: any) => {
+	const [emailAddress, setemailAddress] = useState(
+		selectedTrader.emailAddress
+	);
+	const [isBootcampAttendee, setIsBootcampAttendee] = useState(
+		selectedTrader.isBootcampAttendee
+	);
+	const [isNFAttendee, setIsNFAttendee] = useState(
+		selectedTrader.isNFAttendee
+	);
+	const [isCBMAttendee, setIsCBMAttendee] = useState(
+		selectedTrader.isCBMAttendee
+	);
+
+	const handleUpdate = async (e: any) => {
 		e.preventDefault();
 
 		if (!emailAddress) {
 			return Swal.fire({
 				icon: "error",
 				title: "Error!",
-				text: "All fields are required.",
+				text: "User has no email address",
 				showConfirmButton: true,
 				toast: true,
 			});
 		}
 
-		const newTrader = {
+		const trader = {
+			id,
 			emailAddress,
 			isBootcampAttendee,
 			isNFAttendee,
 			isCBMAttendee,
 		};
 
-		traders.push(newTrader);
-
 		try {
-			await addDoc(collection(db, "users"), {
-				...newTrader,
+			await setDoc(doc(db, "users", id), {
+				...trader,
 			});
 		} catch (e) {
 			console.log(e);
 		}
 
 		setTraders(traders);
-		setIsAdding(false);
+		setIsEditing(false);
 		getTraders();
 
 		Swal.fire({
 			icon: "success",
-			title: "Added!",
-			text: `${emailAddress} data has been Added.`,
+			title: "Updated!",
+			text: `${trader.emailAddress} data has been updated.`,
 			showConfirmButton: false,
 			toast: true,
 			timer: 1500,
@@ -56,9 +71,9 @@ const AddTrader = ({ traders, setTraders, setIsAdding, getTraders }: any) => {
 	return (
 		<div className='h-full w-full absolute top-0 left-0 pt-60 bg-black z-50'>
 			<div className='max-w-7xl mx-auto p-12 border rounded-lg'>
-				<form onSubmit={handleAdd}>
+				<form onSubmit={handleUpdate}>
 					<h1 className='text-2xl md:text-3xl pl-2 my-2 border-l-4 font-bold border-crbrsOrange dark:text-gray-200 mb-4 max-w-7xl mx-auto rounded-sm tracking-widest'>
-						&nbsp; Add Trader
+						&nbsp; Edit Trader
 					</h1>
 					<div className='flex flex-col gap-3'>
 						<div>
@@ -124,14 +139,14 @@ const AddTrader = ({ traders, setTraders, setIsAdding, getTraders }: any) => {
 							<input
 								className='cursor-pointer px-4 py-2 rounded-md border border-black bg-white text-black text-sm hover:shadow-[4px_4px_0px_0px_rgba(0,0,0)] transition duration-200'
 								type='submit'
-								value='Add'
+								value='Update'
 							/>
 							<input
 								style={{ marginLeft: "12px" }}
 								className='cursor-pointer px-4 py-2 rounded-md border border-black bg-white text-black text-sm hover:shadow-[4px_4px_0px_0px_rgba(0,0,0)] transition duration-200'
 								type='button'
 								value='Cancel'
-								onClick={() => setIsAdding(false)}
+								onClick={() => setIsEditing(false)}
 							/>
 						</div>
 					</div>
@@ -141,4 +156,4 @@ const AddTrader = ({ traders, setTraders, setIsAdding, getTraders }: any) => {
 	);
 };
 
-export default AddTrader;
+export default EditTrader;

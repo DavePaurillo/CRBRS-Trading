@@ -33,21 +33,22 @@ const Table = ({ traders, handleEdit }: TableTypes) => {
 								<td className='w-[15%] text-center'>
 									<input
 										type='checkbox'
-										defaultChecked={
-											trader.isBootcampAttendee
-										}
+										checked={trader.isBootcampAttendee}
+										onChange={() => {}}
 									/>
 								</td>
 								<td className='w-[15%] text-center'>
 									<input
 										type='checkbox'
-										defaultChecked={trader.isNFAttendee}
+										checked={trader.isNFAttendee}
+										onChange={() => {}}
 									/>
 								</td>
 								<td className='w-[15%] text-center'>
 									<input
 										type='checkbox'
-										defaultChecked={trader.isCBMAttendee}
+										checked={trader.isCBMAttendee}
+										onChange={() => {}}
 									/>
 								</td>
 								<td className='w-[20%] text-center'>
