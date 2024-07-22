@@ -22,32 +22,33 @@ export function Courses() {
 	const [isNFAttendee, setIsNFAttendee] = useState(false);
 	const [isCBMAttendee, setIsCBMAttendee] = useState(false);
 
-	useEffect(() => {
-		const fetchUsers = async () => {
-			const users = await getDocs(collection(db, "users"));
-			users.forEach((user) => {
-				if (user.data().email == currentUser?.email) {
-					if (user.data().bootcamp) {
-						setIsBootcampAttendee(true);
-					} else {
-						setIsBootcampAttendee(false);
-					}
-
-					if (user.data().niche_finding) {
-						setIsNFAttendee(true);
-					} else {
-						setIsNFAttendee(false);
-					}
-
-					if (user.data().business_mastery) {
-						setIsCBMAttendee(true);
-					} else {
-						setIsCBMAttendee(false);
-					}
+	const fetchUsers = async () => {
+		// there is a better way to query each user
+		const users = await getDocs(collection(db, "users"));
+		users.forEach((user) => {
+			if (user.data().emailAddress == currentUser?.email) {
+				if (user.data().isBootcampAttendee) {
+					setIsBootcampAttendee(true);
+				} else {
+					setIsBootcampAttendee(false);
 				}
-			});
-		};
 
+				if (user.data().isNFAttendee) {
+					setIsNFAttendee(true);
+				} else {
+					setIsNFAttendee(false);
+				}
+
+				if (user.data().isCBMAttendee) {
+					setIsCBMAttendee(true);
+				} else {
+					setIsCBMAttendee(false);
+				}
+			}
+		});
+	};
+
+	useEffect(() => {
 		fetchUsers();
 	});
 
@@ -89,7 +90,7 @@ export function Courses() {
 							<button className='rounded-full pl-4 pr-1 py-1 text-white flex items-center space-x-1 bg-black mt-4 text-xs font-bold dark:bg-zinc-800'>
 								<span>View recordings</span>
 								<span className='bg-zinc-700 rounded-full text-[0.6rem] px-1 py-0 text-white'>
-									{/* ₱20,000 */}
+									{/* ₱24,997 */}
 								</span>
 							</button>
 						</div>
@@ -115,14 +116,14 @@ export function Courses() {
 								<button className='rounded-full pl-4 pr-1 py-1 text-white flex items-center space-x-1 bg-black mt-4 text-xs font-bold dark:bg-zinc-800'>
 									<span>View recordings</span>
 									<span className='bg-zinc-700 rounded-full text-[0.6rem] px-1 py-0 text-white'>
-										{/* ₱20,000 */}
+										{/* ₱39,997 */}
 									</span>
 								</button>
 							) : (
 								<button className='rounded-full pl-4 pr-1 py-1 text-white flex items-center space-x-1 bg-black mt-4 text-xs font-bold dark:bg-zinc-800'>
 									<span>Enroll now </span>
 									<span className='bg-zinc-700 rounded-full text-[0.6rem] px-2 py-0 text-white'>
-										₱25,000
+										₱39,997
 									</span>
 								</button>
 							)}
@@ -159,7 +160,7 @@ export function Courses() {
 								<button className='rounded-full pl-4 pr-1 py-1 text-white flex items-center space-x-1 bg-black mt-4 text-xs font-bold dark:bg-zinc-800'>
 									<span>Enroll now </span>
 									<span className='bg-zinc-700 rounded-full text-[0.6rem] px-2 py-0 text-white'>
-										₱30,000
+										₱49,997
 									</span>
 								</button>
 							)}
@@ -195,7 +196,7 @@ export function Courses() {
 							<button className='rounded-full pl-4 pr-1 py-1 text-white flex items-center space-x-1 bg-black mt-4 text-xs font-bold dark:bg-zinc-800'>
 								<span>Enroll now </span>
 								<span className='bg-zinc-700 rounded-full text-[0.6rem] px-2 py-0 text-white'>
-									₱20,000
+									₱24,997
 								</span>
 							</button>
 						</div>
