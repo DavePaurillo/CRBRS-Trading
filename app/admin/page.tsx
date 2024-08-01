@@ -80,7 +80,7 @@ function Admin() {
 					)}
 				</>
 			) : (
-				<h1>This is not for you to see</h1>
+				<h1></h1>
 			)}
 		</div>
 	);

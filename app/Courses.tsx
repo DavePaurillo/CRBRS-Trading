@@ -1,20 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 import { auth } from "./firebase/firebaseConfig";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 import { db } from "./firebase/firebaseConfig";
-import {
-	doc,
-	collection,
-	getDoc,
-	getDocs,
-	query,
-	updateDoc,
-	where,
-} from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 
 export function Courses() {
 	const [currentUser, setCurrentUser] = useAuthState(auth);
@@ -88,10 +81,8 @@ export function Courses() {
 							</p>
 
 							<button className='rounded-full pl-4 pr-1 py-1 text-white flex items-center space-x-1 bg-black mt-4 text-xs font-bold dark:bg-zinc-800'>
-								<span>View recordings</span>
-								<span className='bg-zinc-700 rounded-full text-[0.6rem] px-1 py-0 text-white'>
-									{/* ₱24,997 */}
-								</span>
+								<Link href='/bootcamp'>View recordings</Link>
+								<span className='bg-zinc-700 rounded-full text-[0.6rem] px-1 py-0 text-white'></span>
 							</button>
 						</div>
 
@@ -114,10 +105,10 @@ export function Courses() {
 							</p>
 							{isNFAttendee ? (
 								<button className='rounded-full pl-4 pr-1 py-1 text-white flex items-center space-x-1 bg-black mt-4 text-xs font-bold dark:bg-zinc-800'>
-									<span>View recordings</span>
-									<span className='bg-zinc-700 rounded-full text-[0.6rem] px-1 py-0 text-white'>
-										{/* ₱39,997 */}
-									</span>
+									<Link href='nicheFinding'>
+										View recordings
+									</Link>
+									<span className='bg-zinc-700 rounded-full text-[0.6rem] px-1 py-0 text-white'></span>
 								</button>
 							) : (
 								<button className='rounded-full pl-4 pr-1 py-1 text-white flex items-center space-x-1 bg-black mt-4 text-xs font-bold dark:bg-zinc-800'>
@@ -151,10 +142,10 @@ export function Courses() {
 							</p>
 							{isCBMAttendee ? (
 								<button className='rounded-full pl-4 pr-1 py-1 text-white flex items-center space-x-1 bg-black mt-4 text-xs font-bold dark:bg-zinc-800'>
-									<span>View recordings</span>
-									<span className='bg-zinc-700 rounded-full text-[0.6rem] px-1 py-0 text-white'>
-										{/* ₱20,000 */}
-									</span>
+									<Link href='cBusinessMastery'>
+										View recordings
+									</Link>
+									<span className='bg-zinc-700 rounded-full text-[0.6rem] px-1 py-0 text-white'></span>
 								</button>
 							) : (
 								<button className='rounded-full pl-4 pr-1 py-1 text-white flex items-center space-x-1 bg-black mt-4 text-xs font-bold dark:bg-zinc-800'>
