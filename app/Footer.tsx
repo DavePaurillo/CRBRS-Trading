@@ -80,7 +80,7 @@ export function Footer() {
 					</div>
 				</div>
 			</div>
-			<p className='text-sm text-center'>
+			<p className='text-sm text-center text-gray-200'>
 				© Cerberus Trading. All rights reserved.
 			</p>
 		</section>

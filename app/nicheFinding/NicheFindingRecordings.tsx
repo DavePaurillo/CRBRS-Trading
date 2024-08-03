@@ -126,9 +126,9 @@ const NicheFindingRecordings = () => {
 						alt='back-arrow'
 						className='h-4 w-auto mr-6'
 					/>
-					<p>Go back to home page</p>
+					<p className='text-neutral-200'>Go back to home page</p>
 				</Link>
-				<h1 className='text-2xl md:text-3xl pl-2 my-2 border-l-4 font-bold border-crbrsOrange dark:text-gray-200 mb-4 max-w-7xl mx-auto rounded-sm tracking-widest'>
+				<h1 className='text-2xl md:text-3xl pl-2 my-2 border-l-4 font-bold border-crbrsOrange text-gray-200 mb-4 max-w-7xl mx-auto rounded-sm tracking-widest'>
 					&nbsp; Niche Finding
 				</h1>
 
@@ -144,7 +144,7 @@ const NicheFindingRecordings = () => {
 						sandbox='allow-same-origin allow-scripts'
 						className='w-full h-[800px] p-4 border-4 border-crbrsDark rounded-lg'
 					/>
-					<h1 className='text-lg my-2 font-bold dark:text-gray-200 mb-4 max-w-7xl mx-auto rounded-sm tracking-widest'>
+					<h1 className='text-lg my-2 font-bold text-gray-200 mb-4 max-w-7xl mx-auto rounded-sm tracking-widest'>
 						{selectedRecordingTitle}
 					</h1>
 				</section>
@@ -168,7 +168,7 @@ const NicheFindingRecordings = () => {
 									sandbox='allow-same-origin allow-scripts'
 									className='p-4 border-4 border-crbrsDark rounded-lg pointer-events-none cursor-pointer'
 								/>
-								<h1 className='text-sm my-2 font-bold dark:text-gray-200 mb-4 max-w-7xl mx-auto rounded-sm tracking-widest'>
+								<h1 className='text-sm my-2 font-bold text-gray-200 mb-4 max-w-7xl mx-auto rounded-sm tracking-widest'>
 									{video.title}
 								</h1>
 							</div>

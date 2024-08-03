@@ -19,7 +19,7 @@ export function About() {
 
 	return (
 		<div id='about' className='max-w-7xl px-8 mx-auto'>
-			<h1 className='text-2xl md:text-3xl pl-2 my-2 border-l-4 font-bold border-crbrsOrange dark:text-gray-200 mb-4 max-w-7xl mx-auto rounded-sm tracking-widest'>
+			<h1 className='text-2xl md:text-3xl pl-2 my-2 border-l-4 font-bold border-crbrsOrange text-gray-200 mb-4 max-w-7xl mx-auto rounded-sm tracking-widest'>
 				&nbsp; About Us
 			</h1>
 

@@ -7,8 +7,8 @@ interface HeaderTypes {
 
 const Header = ({ setIsAdding }: HeaderTypes) => {
 	return (
-		<header className='max-w-7xl mx-auto mt-12'>
-			<h1 className='text-2xl md:text-3xl pl-2 my-2 border-l-4 font-bold border-crbrsOrange dark:text-gray-200 mb-4 max-w-7xl mx-auto rounded-sm tracking-widest'>
+		<header className='max-w-7xl mx-auto pt-12'>
+			<h1 className='text-2xl md:text-3xl pl-2 my-2 border-l-4 font-bold border-crbrsOrange text-gray-200 mb-4 max-w-7xl mx-auto rounded-sm tracking-widest'>
 				&nbsp; Trader&apos;s list
 			</h1>
 			<div className='mt-8 mb-4'>

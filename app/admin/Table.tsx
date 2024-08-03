@@ -8,7 +8,7 @@ interface TableTypes {
 
 const Table = ({ traders, handleEdit }: TableTypes) => {
 	return (
-		<div className='max-w-7xl mx-auto px-8 py-6 border rounded-lg'>
+		<div className='max-w-7xl mx-auto px-8 py-6 border border-white rounded-lg bg-black text-neutral-200'>
 			<table className='w-full'>
 				<thead>
 					<tr>

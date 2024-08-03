@@ -72,10 +72,10 @@ const EditTrader = ({
 		<div className='h-full w-full absolute top-0 left-0 pt-60 bg-black z-50'>
 			<div className='max-w-7xl mx-auto p-12 border rounded-lg'>
 				<form onSubmit={handleUpdate}>
-					<h1 className='text-2xl md:text-3xl pl-2 my-2 border-l-4 font-bold border-crbrsOrange dark:text-gray-200 mb-4 max-w-7xl mx-auto rounded-sm tracking-widest'>
+					<h1 className='text-2xl md:text-3xl pl-2 my-2 border-l-4 font-bold border-crbrsOrange text-gray-200 mb-4 max-w-7xl mx-auto rounded-sm tracking-widest'>
 						&nbsp; Edit Trader
 					</h1>
-					<div className='flex flex-col gap-3'>
+					<div className='flex flex-col gap-3 text-neutral-200'>
 						<div>
 							<label htmlFor='emailAddress' className='mr-4'>
 								Email Address:

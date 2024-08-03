@@ -134,7 +134,7 @@ export function Nav() {
 								containerClassName='rounded-full'
 								as='button'
 								onClick={logout}
-								className='dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2'
+								className='bg-black text-white flex items-center space-x-2'
 							>
 								Logout
 							</HoverBorderGradient>
@@ -143,7 +143,7 @@ export function Nav() {
 								containerClassName='rounded-full'
 								as='button'
 								onClick={login}
-								className='dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2'
+								className='bg-black text-white flex items-center space-x-2'
 							>
 								Login
 							</HoverBorderGradient>
@@ -179,7 +179,7 @@ export function Nav() {
 
 	return (
 		<div className='relative max-w-7xl flex items-center justify-between px-4 pt-6 pb-8 mx-auto xl:px-0 xl:py-8'>
-			<div className='bg-black flex items-center rounded-full'>
+			<div className='bg-black text-white flex items-center rounded-full'>
 				<Image
 					src='/crbrs-icon.png'
 					height='50'
@@ -197,7 +197,7 @@ export function Nav() {
 			<div className='hidden xl:block'>
 				<HoverBorderGradient
 					containerClassName='rounded-full'
-					className='dark:bg-black bg-white text-black dark:text-white flex items-center space-x-6 py-4 px-8'
+					className='bg-black text-white flex items-center space-x-6 py-4 px-8'
 				>
 					<HoveredLink href='#home'>Home</HoveredLink>
 					<HoveredLink href='#about'>About</HoveredLink>
@@ -213,7 +213,7 @@ export function Nav() {
 						containerClassName='rounded-full'
 						as='button'
 						onClick={logout}
-						className='dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2'
+						className='bg-black text-white flex items-center space-x-2'
 					>
 						Logout
 					</HoverBorderGradient>
@@ -222,7 +222,7 @@ export function Nav() {
 						containerClassName='rounded-full'
 						as='button'
 						onClick={login}
-						className='dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2'
+						className='bg-black text-white flex items-center space-x-2'
 					>
 						Login
 					</HoverBorderGradient>
@@ -236,7 +236,7 @@ export function Nav() {
 					onClick={() => setToggle(!isToggled)}
 					containerClassName='rounded-full'
 					as='button'
-					className='dark:bg-black bg-white text-black dark:text-white flex items-center space-x-2'
+					className='bg-black text-white flex items-center space-x-2'
 				>
 					<Image
 						src={hamburger}

@@ -53,10 +53,12 @@ function Admin() {
 		"Mja.argotarn@gmail.com",
 		"y.manalac@gmail.com",
 		"paurillo.dave@gmail.com",
+		"mace7th@gmail.com",
+		"ianliao218@gmail.com",
 	];
 
 	return (
-		<div>
+		<div className='bg-black w-full h-screen'>
 			{validUsers.includes(currentUser?.email!) ? (
 				<>
 					<Header setIsAdding={setIsAdding} />
