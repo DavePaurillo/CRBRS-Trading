@@ -32,7 +32,7 @@ const BootcampRecordings = () => {
 			title: "Esther - Day 2",
 		},
 		{
-			link: "",
+			link: "https://drive.google.com/file/d/1RCL0bncbS1swyzaLNr7cgaVrdVY0w2nB/preview",
 			title: "Esther - Day 3",
 		},
 		{
