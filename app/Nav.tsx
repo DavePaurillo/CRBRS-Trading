@@ -170,7 +170,10 @@ export function Nav() {
 							variants={navItem}
 							key={item.href}
 						>
-							<HoveredLink href={`#${item.href}`}>
+							<HoveredLink
+								onClick={() => setToggle(!isToggled)}
+								href={`#${item.href}`}
+							>
 								{item.title}
 							</HoveredLink>
 						</motion.li>
