@@ -78,11 +78,26 @@ export function Nav() {
 
 	const Navbar: React.FC<NavBarProps> = (props: NavBarProps) => {
 		const items = [
-			"Home",
-			"About",
-			"Proof of Concept",
-			"Courses",
-			"Contact us",
+			{
+				href: "home",
+				title: "Home",
+			},
+			{
+				href: "about",
+				title: "About",
+			},
+			{
+				href: "poc",
+				title: "Proof of Concept",
+			},
+			{
+				href: "courses",
+				title: "Courses",
+			},
+			{
+				href: "contactUs",
+				title: "Contact us",
+			},
 		];
 
 		const navList = {
@@ -153,9 +168,11 @@ export function Nav() {
 						<motion.li
 							className='nav-item'
 							variants={navItem}
-							key={item}
+							key={item.href}
 						>
-							<HoveredLink href='#'>{item}</HoveredLink>
+							<HoveredLink href={`#${item.href}`}>
+								{item.title}
+							</HoveredLink>
 						</motion.li>
 					))}
 					<li
