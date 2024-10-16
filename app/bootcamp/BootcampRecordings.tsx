@@ -20,33 +20,33 @@ const BootcampRecordings = () => {
 
 	const videolist = [
 		{
-			link: "https://drive.google.com/file/d/1T98aO4hebPOnYxXgOwcjZ-kQPuzNsWwy/preview",
-			title: "Esther - Onboarding",
+			link: "https://drive.google.com/file/d/1h9FeEyfHBSlWIs8zBh-j0q6pI1gLSycS/preview",
+			title: "Isaiah - Onboarding",
 		},
-		{
-			link: "https://drive.google.com/file/d/1UYP4nMzjlMhT__LSbiHpZyMfMslE_dcE/preview",
-			title: "Esther - Day 1",
-		},
-		{
-			link: "https://drive.google.com/file/d/1xjfAXVCGYWOa_rCzj-WivUDeGptLLNcB/preview",
-			title: "Esther - Day 2",
-		},
-		{
-			link: "https://drive.google.com/file/d/1RCL0bncbS1swyzaLNr7cgaVrdVY0w2nB/preview",
-			title: "Esther - Day 3",
-		},
-		{
-			link: "https://drive.google.com/file/d/1sx5uWupSJF4IA4SfhvPkUHIOr0h25gED/preview",
-			title: "Esther - Day 4",
-		},
-		{
-			link: "https://drive.google.com/file/d/1Ye-Gf_e6r2vxWPc6tWIXtUK48aKgzOfj/preview",
-			title: "Esther - Day 5",
-		},
-		{
-			link: "https://drive.google.com/file/d/1fV6X68MNMkTDMaZgbn3Qzt6XrDaxmevj/preview",
-			title: "Esther - Day 6",
-		},
+		// {
+		// 	link: "https://drive.google.com/file/d/1UYP4nMzjlMhT__LSbiHpZyMfMslE_dcE/preview",
+		// 	title: "Esther - Day 1",
+		// },
+		// {
+		// 	link: "https://drive.google.com/file/d/1xjfAXVCGYWOa_rCzj-WivUDeGptLLNcB/preview",
+		// 	title: "Esther - Day 2",
+		// },
+		// {
+		// 	link: "https://drive.google.com/file/d/1RCL0bncbS1swyzaLNr7cgaVrdVY0w2nB/preview",
+		// 	title: "Esther - Day 3",
+		// },
+		// {
+		// 	link: "https://drive.google.com/file/d/1sx5uWupSJF4IA4SfhvPkUHIOr0h25gED/preview",
+		// 	title: "Esther - Day 4",
+		// },
+		// {
+		// 	link: "https://drive.google.com/file/d/1Ye-Gf_e6r2vxWPc6tWIXtUK48aKgzOfj/preview",
+		// 	title: "Esther - Day 5",
+		// },
+		// {
+		// 	link: "https://drive.google.com/file/d/1fV6X68MNMkTDMaZgbn3Qzt6XrDaxmevj/preview",
+		// 	title: "Esther - Day 6",
+		// },
 	];
 
 	return (
