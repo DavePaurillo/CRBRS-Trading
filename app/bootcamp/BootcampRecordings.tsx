@@ -6,10 +6,10 @@ import backarrow from "../../public/back-arrow-icon.svg";
 
 const BootcampRecordings = () => {
 	const [selectedRecordingLink, setSelectedRecordingLink] = useState(
-		"https://drive.google.com/file/d/1T98aO4hebPOnYxXgOwcjZ-kQPuzNsWwy/preview"
+		"https://drive.google.com/file/d/1h9FeEyfHBSlWIs8zBh-j0q6pI1gLSycS/preview"
 	);
 	const [selectedRecordingTitle, setSelectedRecordingTitle] = useState(
-		"Esther - Onboarding"
+		"Isaiah - Onboarding"
 	);
 
 	const handleClick = (link: string, title: string) => {
