@@ -61,7 +61,7 @@ const BootcampRecordings = () => {
 					<p className='text-neutral-200'>Go back to home page</p>
 				</Link>
 				<h1 className='text-2xl md:text-3xl pl-2 my-2 border-l-4 font-bold border-crbrsOrange text-gray-200 mb-4 max-w-7xl mx-auto rounded-sm tracking-widest'>
-					&nbsp; Bootcamp - Esther
+					&nbsp; Bootcamp - Isaiah
 				</h1>
 
 				{/* main video */}
