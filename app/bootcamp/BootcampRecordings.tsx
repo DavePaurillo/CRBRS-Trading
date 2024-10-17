@@ -23,10 +23,10 @@ const BootcampRecordings = () => {
 			link: "https://drive.google.com/file/d/1h9FeEyfHBSlWIs8zBh-j0q6pI1gLSycS/preview",
 			title: "Isaiah - Onboarding",
 		},
-		// {
-		// 	link: "https://drive.google.com/file/d/1UYP4nMzjlMhT__LSbiHpZyMfMslE_dcE/preview",
-		// 	title: "Esther - Day 1",
-		// },
+		{
+			link: "https://drive.google.com/file/d/1q6ZQm1bEUOpRd7CB_azu0oh5uNse4HOT/preview",
+			title: "Isaiah - Day 1",
+		},
 		// {
 		// 	link: "https://drive.google.com/file/d/1xjfAXVCGYWOa_rCzj-WivUDeGptLLNcB/preview",
 		// 	title: "Esther - Day 2",
