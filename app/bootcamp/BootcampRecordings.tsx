@@ -43,10 +43,10 @@ const BootcampRecordings = () => {
 			link: "https://drive.google.com/file/d/1LSmTNMvPfG4yzx9Hy-qfw8O4jvdFRZz1/preview",
 			title: "Isaiah - Day 5",
 		},
-		// {
-		// 	link: "https://drive.google.com/file/d/1fV6X68MNMkTDMaZgbn3Qzt6XrDaxmevj/preview",
-		// 	title: "Esther - Day 6",
-		// },
+		{
+			link: "https://drive.google.com/file/d/1mvb8t02uRmcU_BQet_PxKigds2ylP7fr/preview",
+			title: "Isaiah - Day 6",
+		},
 	];
 
 	return (
